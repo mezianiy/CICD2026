@@ -1,0 +1,21 @@
+const http = require('http');
+
+const PORT = process.env.PORT || 3000;
+const ENV = process.env.APP_ENV || 'dev';
+
+const messages = {
+  dev: 'Hello from DEV environment',
+  qa: 'Hello from QA environment',
+  prod: 'Hello from PROD environment',
+};
+
+const message = messages[ENV] || 'Hello World';
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end(message + '\n');
+});
+
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT} – ${message}`);
+});
