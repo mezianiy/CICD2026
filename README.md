@@ -226,6 +226,7 @@ spec:
 
 > **Important :**  
 > `DOCKER_HUB_USERNAME` sera remplacé automatiquement par ton vrai nom Docker Hub dans le pipeline.
+> C'est une des variables que nous avons créer dans la configuration de notre projet dans github.
 
 ### 7.2. Fichiers `k8s/deployment-qa.yaml` et `k8s/deployment-prod.yaml`
 
