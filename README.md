@@ -70,7 +70,7 @@ Avant de commencer, tu dois avoir :
 
 ## 3. Mise en place et récupéreration du projet de départ
 
-### 3.1. Installer la fonctionnalité git, node.js et créer un répertoire pour le projet sur kube-worker1 dans le répertoire projet.
+### 3.1. Installer la fonctionnalité git, node.js et créer un répertoire pour le projet sur votre contrôle plan.
    ````
    sudo apt install git
    sudo apt install npm
@@ -93,7 +93,7 @@ Avant de commencer, tu dois avoir :
 <br><br>   
 <img width="805" height="112" alt="image" src="https://github.com/user-attachments/assets/c3322fe9-05ea-4113-880a-80410185589c" />
 <br><br>
-2. Choisis ton compte GitHub comme destination.
+2. Choisis ton compte GitHub comme destination. (Owner *)
 <br><br>
 <img width="809" height="617" alt="image" src="https://github.com/user-attachments/assets/e064ae8a-3bd7-4ee7-866d-db3f327d8557" />
 <br><br>
