@@ -435,7 +435,31 @@ jobs:
 ---
 - Faire un test
 - Faire un déploiement initial sur K3S sur les 3 namespace
-- Faite un nouvelle version du fichier deploiyement.yaml et changer la variable DOCKER_HUB_USERNAME pour la valeur. 
+- Faite un nouvelle version du fichier deploiyement.yaml et changer la variable DOCKER_HUB_USERNAME pour la valeur.
+
+---
+#### 1.1 Création d’un runner self‑hosted GitHub Actions
+
+##### Ouvre la vm RunnerGitHubActions, c'est dans cette VM que tu entreras les commandes.
+
+Dans ton dépôt GitHub :
+
+a. Ouvre **Settings**
+b. Va dans **Actions**
+c. Clique sur **Runners**
+d. Sélectionne **New self-hosted runner**
+
+#### 1.2. Choisir la plateforme
+- **OS :** Linux  
+- **Architecture :** x64
+
+GitHub affichera ensuite une série de commandes à exécuter sur ta vm RunnerGitHubActions
+
+#### 1.3. Exécuter les commandes fournies par GitHub
+Suis exactement les commandes affichées dans l’interface GitHub, par exemple :
+
+** à la commande :  ./config.sh --url https://github.com/danbran99/CICD2026 --token AM3ASTNJXWZT4LOWxxxxxxxxxxxxxx
+- Fait que des retours chariots pour avoir les valeurs par défauts.
 
 ### Étape 2 – Modifier le message de l’application
 
