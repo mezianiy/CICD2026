@@ -12,7 +12,7 @@ Ce document t’explique simplement :
 
 ---
 
-# Étape de préconfif config
+# Étape de préconfif config - À faire dans votre terminal de VS code
 
 git config --global user.name "Danny Brabant"
 <br>
