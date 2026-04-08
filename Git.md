@@ -12,6 +12,11 @@ Ce document t’explique simplement :
 
 ---
 
+# Étape de préconfif config
+
+git config --global user.name "Danny Brabant"
+git config --global user.email "danny.brabant@cegepmontpetit.ca"
+
 # 🧩 1. Branches locales (sur ton ordinateur)
 
 Une **branche locale** est une version du projet qui existe **uniquement sur ta machine**.
