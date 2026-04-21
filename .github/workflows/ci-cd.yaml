@@ -68,14 +68,18 @@ jobs:
         id: vars
         run: |
           if [[ "${GITHUB_REF_NAME}" == "dev" ]]; then
-              echo "TAG=dev" >> $GITHUB_OUTPUT
+            echo "TAG=dev" >> $GITHUB_OUTPUT
+            echo "K8S_ENV=dev" >> $GITHUB_OUTPUT
+
           elif [[ "${GITHUB_REF_NAME}" == "qa" ]]; then
-              echo "TAG=qa" >> $GITHUB_OUTPUT
+            echo "TAG=qa" >> $GITHUB_OUTPUT
+            echo "K8S_ENV=qa" >> $GITHUB_OUTPUT
+
           elif [[ "${GITHUB_REF_NAME}" == "main" ]]; then
-              echo "TAG=prod" >> $GITHUB_OUTPUT
+            echo "TAG=prod" >> $GITHUB_OUTPUT
+            echo "K8S_ENV=prod" >> $GITHUB_OUTPUT
           fi
 
-          echo "K8S_ENV=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
 
       # ------------------------------------------------------------
       # Étape 5 : Construire et pousser l'image Docker
