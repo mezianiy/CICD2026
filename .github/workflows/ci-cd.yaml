@@ -114,7 +114,7 @@ jobs:
       # ------------------------------------------------------------
       - name: Update image in manifest
         run: |
-          sed -i "s|image:.*hello-app.*|image: ${IMAGE_NAME}:${{ steps.vars.outputs.TAG }}|g" k8s/deployment.yaml
+          sed -i "s|image:.*hello-app.*|image: ${IMAGE_NAME}:${{ steps.vars.outputs.TAG }}|g" k8s/deployment-${{ steps.vars.outputs.K8S_ENV }}.yaml
  #         sed -i "s|DOCKER_HUB_USERNAME/hello-app:${{ steps.vars.outputs.TAG }}|${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.TAG }}|g" k8s/deployment.yaml
  #         sed -i "s|DOCKER_HUB_USERNAME/hello-app:${{ steps.vars.outputs.TAG }}|${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.TAG }}|g" k8s/deployment-${{ steps.vars.outputs.K8S_ENV }}.yaml
       
@@ -131,7 +131,8 @@ jobs:
       # ------------------------------------------------------------
       - name: Apply Kubernetes manifests
         run: |
-          kubectl apply -f k8s/deployment.yaml -n ${{ steps.vars.outputs.K8S_ENV }}
+          kubectl apply -f k8s/deployment-${{ steps.vars.outputs.K8S_ENV }}.yaml -n ${{ steps.vars.outputs.K8S_ENV }}
+
       # ------------------------------------------------------------
       # Étape 10 : Vérifier le rollout
       # Attend que le déploiement soit terminé et confirme que tout fonctionne
