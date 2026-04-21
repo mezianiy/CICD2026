@@ -2,27 +2,27 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-app
-  namespace: dev
+  namespace: qa
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: hello-app
-      env: dev
+      env: qa
   template:
     metadata:
       labels:
         app: hello-app
-        env: dev
+        env: qa
     spec:
       containers:
         - name: hello-app
-          image: DOCKER_HUB_USERNAME/hello-app:dev
+          image: DOCKER_HUB_USERNAME/hello-app:qa
           ports:
             - containerPort: 3000
           env:
             - name: APP_ENV
-              value: dev
+              value: qa
           resources:
             requests:
               cpu: "50m"
@@ -35,11 +35,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hello-app
-  namespace: dev
+  namespace: qa
 spec:
   selector:
     app: hello-app
-    env: dev
+    env: qa
   ports:
     - port: 80
       targetPort: 3000
@@ -50,14 +50,12 @@ apiVersion: v1
 kind: Ingress
 metadata:
   name: hello-app
-  namespace: dev
+  namespace: qa
   annotations:
     kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-# ajouter dans le /etc/host
-# 192.168.21.100 hello.cluster.local
-    - host: hello.cluster.local
+    - host: hello-qa.cluster.local
       http:
         paths:
           - path: /
