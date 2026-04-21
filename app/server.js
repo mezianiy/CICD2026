@@ -1,12 +1,12 @@
 const http = require('http');
 
 const PORT = process.env.PORT || 3000;
-const ENV = process.env.APP_ENV || 'qa';
+const ENV = process.env.APP_ENV || 'prod';
 
 const messages = {
   dev: "Hello de l'environnement de DEV",
   qa: "LES GOOOOO de l'environnement de QA",
-  prod: "Hello de l'environnement de PROD",
+  prod: "PROOOOOD de l'environnement de PROD",
 };
 
 const message = messages[ENV] || 'Hello World';
