@@ -67,7 +67,14 @@ jobs:
       - name: Set image tag based on branch
         id: vars
         run: |
-          echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+          if [[ "${GITHUB_REF_NAME}" == "dev" ]]; then
+              echo "TAG=dev" >> $GITHUB_OUTPUT
+          elif [[ "${GITHUB_REF_NAME}" == "qa" ]]; then
+              echo "TAG=qa" >> $GITHUB_OUTPUT
+          elif [[ "${GITHUB_REF_NAME}" == "main" ]]; then
+              echo "TAG=prod" >> $GITHUB_OUTPUT
+          fi
+
           echo "K8S_ENV=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
 
       # ------------------------------------------------------------
